@@ -21,6 +21,18 @@ A super simple FastAPI application that allows students to view and sign up for 
    python app.py
    ```
 
+### Teacher access
+
+Only signed-in teachers can register or unregister students. Activity details and participant lists remain visible to everyone.
+
+Create a teacher account locally with:
+
+```
+python create_teacher.py
+```
+
+The script writes password hashes to `teachers.json`, which is ignored by Git. Keep this file private and back it up securely. Set `COOKIE_SECURE=true` when serving the app over HTTPS; leave it unset for local HTTP development. Teacher sessions expire after eight hours and are stored in memory, so run a single application process unless session storage is moved to a shared backend.
+
 3. Open your browser and go to:
    - API documentation: http://localhost:8000/docs
    - Alternative documentation: http://localhost:8000/redoc
